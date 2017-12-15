@@ -20,3 +20,9 @@
 
 |Column|Type|Options|
 |------|----|-------|
+|name|string||
+|age|integer||
+|address|text||
+|subject|string||
+
+## Association
