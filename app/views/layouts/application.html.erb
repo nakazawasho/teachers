@@ -11,6 +11,26 @@
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+
+    <div class="header">
+      <h1>家庭教師</h1>
+    </div>
     <%= yield %>
+    <div class="footer">
+      <ul>
+        <li>
+          <%= fa_icon("home") %>
+          <p>
+            ホーム
+          </p>
+        </li>
+        <li>
+          <%= fa_icon("cog") %>
+          <p>
+            設定
+          </p>
+        </li>
+      </ul>
+    </div>
   </body>
 </html>
