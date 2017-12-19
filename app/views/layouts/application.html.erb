@@ -16,8 +16,10 @@
       <h1>家庭教師</h1>
       <%= link_to "ログアウト", destroy_teacher_session_path, method: :delete %>
     </div>
-    <%= yield %>
-    <div class="footer">
+    <div class="wrapper">
+      <%= yield %>
+    </div>
+     <div class="footer">
       <ul>
         <li>
           <%= fa_icon("home") %>
