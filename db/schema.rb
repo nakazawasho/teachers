@@ -10,11 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171215151711) do
+ActiveRecord::Schema.define(version: 20171218055651) do
 
   create_table "students", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                                default: "", null: false
     t.string   "encrypted_password",                   default: "", null: false
+    t.string   "name"
+    t.integer  "age"
+    t.text     "address",                limit: 65535
+    t.string   "subject"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -25,27 +29,21 @@ ActiveRecord::Schema.define(version: 20171215151711) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                                        null: false
     t.datetime "updated_at",                                        null: false
-    t.string   "name"
-    t.integer  "age"
-    t.text     "address",                limit: 65535
-    t.string   "subject"
     t.index ["email"], name: "index_students_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_students_on_reset_password_token", unique: true, using: :btree
   end
 
   create_table "teachers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
-    t.string   "university"
-    t.string   "department"
-    t.string   "subject"
-    t.string   "salary"
-    t.text     "profile",                limit: 65535
-    t.string   "image"
-    t.integer  "age"
-    t.datetime "created_at",                                        null: false
-    t.datetime "updated_at",                                        null: false
     t.string   "email",                                default: "", null: false
     t.string   "encrypted_password",                   default: "", null: false
+    t.string   "name"
+    t.text     "address",                limit: 65535
+    t.integer  "age"
+    t.string   "department"
+    t.string   "subject"
+    t.integer  "salary"
+    t.string   "image"
+    t.string   "profile"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -54,6 +52,8 @@ ActiveRecord::Schema.define(version: 20171215151711) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
     t.index ["email"], name: "index_teachers_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_teachers_on_reset_password_token", unique: true, using: :btree
   end
