@@ -7,8 +7,9 @@ Rails.application.routes.draw do
   devise_for :students, controllers: {
     sessions:      'students/sessions',
     passwords:     'students/passwords',
-    registrations: 'studetns/registrations'
+    registrations: 'students/registrations'
   }
   root "teachers#index"
   resources :teachers
+  resources :students
 end
