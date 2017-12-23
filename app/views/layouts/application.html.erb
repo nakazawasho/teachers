@@ -9,31 +9,13 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
-    <div class="header">
-      <h1>家庭教師</h1>
-      <%= link_to "ログアウト", destroy_teacher_session_path, method: :delete %>
-    </div>
-    <div class="wrapper">
-      <%= yield %>
-    </div>
-     <div class="footer">
-      <ul>
-        <li>
-          <%= fa_icon("home") %>
-          <p>
-            ホーム
-          </p>
-        </li>
-        <li>
-          <%= fa_icon("cog") %>
-          <p>
-            設定
-          </p>
-        </li>
-      </ul>
+    <div class="background">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    <%= render "shared/header" %>
+     <div class="wrapper">
+        <%= yield %>
+     </div>
     </div>
   </body>
 </html>
