@@ -7,10 +7,39 @@
     background-color: white;
     margin: auto;
     margin-top: 200px;
+    border-radius: 4px;
+    position: relative;
+    padding: 14px 18px;
+    border: 1px solid black;
+
+    &__title {
+      margin-bottom: 10px;
+
+      h2 {
+        font-size: 100px;
+      }
+    }
+
+    .field {
+      input {
+        border: 1px solid #a6a6a6;
+        border-top-color: #949494;
+        border-radius: 3px;
+        box-shadow: 0 1px 0 rgba(255,255,255,.5), 0 1px 0 rgba(0,0,0,.07) inset;
+        height: 40px;
+        width: 500px;
+        margin: 10px 0 30px;
+      }
+
+      label {
+        font-size: 45px;
+        margin-bottom: 15px;
+      }
+    }
   }
 }
 
 .wrapper {
-  padding-top: 10vh;
+  padding-top: 200px;;
   height: 80vh;
 }

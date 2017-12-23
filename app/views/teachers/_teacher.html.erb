@@ -1,1 +1,6 @@
-<%= link_to image_tag(teacher.image), teacher_path(teacher), class: "teacher" %>
+<div class="teacher-container">
+  <%= link_to image_tag(teacher.image), teacher_path(teacher), class: "teacher" %>
+  <div class="teacher__name">
+    <%= teacher.name %>
+  </div>
+</div>

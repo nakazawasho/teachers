@@ -1,0 +1,33 @@
+<div class="header">
+  <ul class="header__nav">
+    <%= link_to root_path do %>
+      <h1>家庭教師</h1>
+    <% end %>
+    <li id="menu">
+      <div onclick="obj=document.getElementById('open').style; obj.display=(obj.display=='none')?'block':'none';">
+        <a style="cursor:pointer;">
+          <%= fa_icon("bars 5x") %>
+        </a>
+      </div>
+      <ul id="open">
+        <li>
+          <% if teacher_signed_in? %>
+            <%= link_to "ログアウト", destroy_teacher_session_path, method: :delete %>
+          <% elsif student_signed_in? %>
+            <%= link_to "ログアウト", destroy_student_session_path, method: :delete %>
+          <% end %>
+        </li>
+      </ul>
+    </li>
+    <li id="home" class="list-right">
+      <% if teacher_signed_in? %>
+        <%= link_to teacher_path(current_teacher) do %>
+          <%= fa_icon("home 5x") %>
+        <% end %>
+      <% end %>
+    </li>
+    <li id="cog" class="list-right">
+      <%= fa_icon("search 5x") %>
+    </li>
+  </ul>
+</div>

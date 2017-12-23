@@ -1,0 +1,55 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 90vh;
+  overflow: scroll;
+}
+
+.teacher-container {
+    width: 50%;
+    height: 500px;
+
+    img {
+      background-size: cover;
+      height: 380px;
+      width: 80%;
+      border-radius: 200px;
+      display: block;
+      margin: 50px auto;
+      box-shadow: 10px 10px 10px 10px rgba(0,0,0,0.4);
+    }
+}
+
+.teacher {
+
+  &__name {
+    text-align: center;
+    font-size: 40px;
+  }
+}
+
+.footer {
+  position: fixed;
+  width: 100%;
+  height: 10vh;
+  bottom: 0;
+  background-color: white;
+
+  ul{
+    display: table;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+
+    li {
+      display: table-cell;
+      width: 50%;
+
+      .fa {
+        font-size: 130px;
+      }
+    }
+
+  }
+}
