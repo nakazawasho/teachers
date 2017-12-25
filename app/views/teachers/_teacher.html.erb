@@ -1,6 +1,14 @@
 <div class="teacher-container">
   <%= link_to image_tag(teacher.image), teacher_path(teacher), class: "teacher" %>
-  <div class="teacher__name">
-    <%= teacher.name %>
+  <div class="teacher__detail">
+    <div class="teacher__age">
+      23年
+    </div>
+    <div class="teacher__name">
+      <%= teacher.name %>
+    </div>
+    <div class="teacher__profile">
+      はじめまして</ br>新垣結衣と言います。</ br>主に英語を教えています。</ br>よろしくお願いします。
+    </div>
   </div>
 </div>

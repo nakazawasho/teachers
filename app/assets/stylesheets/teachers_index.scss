@@ -8,7 +8,7 @@
 
 .teacher-container {
     width: 50%;
-    height: 500px;
+    margin-top: 40px;
 
     img {
       background-size: cover;
@@ -23,9 +23,20 @@
 
 .teacher {
 
-  &__name {
-    text-align: center;
+  &__detail{
+    padding-left: 30px;
+    width: 100%;
+  }
+
+  &__age {
+    display: inline;
     font-size: 40px;
+  }
+
+  &__name {
+    display: inline;
+    font-size: 40px;
+    text-align: center;
   }
 }
 
