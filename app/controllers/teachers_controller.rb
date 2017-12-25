@@ -7,4 +7,8 @@ class TeachersController < ApplicationController
     @teacher = Teacher.find(params[:id])
   end
 
+  def search
+    @teachers
+  end
+
 end
