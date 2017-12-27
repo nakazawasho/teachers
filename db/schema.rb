@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171225062442) do
+ActiveRecord::Schema.define(version: 20171225092932) do
 
   create_table "students", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                                default: "", null: false
@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(version: 20171225062442) do
     t.integer  "subject_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["subject_id"], name: "index_teacher_subjects_on_subject_id", using: :btree
+    t.index ["teacher_id"], name: "index_teacher_subjects_on_teacher_id", using: :btree
   end
 
   create_table "teachers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -67,8 +69,11 @@ ActiveRecord::Schema.define(version: 20171225062442) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                                        null: false
     t.datetime "updated_at",                                        null: false
+    t.string   "university"
     t.index ["email"], name: "index_teachers_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_teachers_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "teacher_subjects", "subjects"
+  add_foreign_key "teacher_subjects", "teachers"
 end

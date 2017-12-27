@@ -1,0 +1,13 @@
+@mixin box-shadow() {
+  box-shadow: rgba(225, 225, 255, 3) 0 1px 0;
+}
+
+@mixin border-bottom() {
+  border-bottom: 1px solid rgba(0, 0, 0, 1);
+}
+
+@mixin text-shadow() {
+  text-shadow: 1px -1px rgba(255, 255, 255, 1)
+}
+
+$base-color: #EEE;

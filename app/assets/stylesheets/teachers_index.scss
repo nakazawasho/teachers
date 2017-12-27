@@ -1,8 +1,8 @@
+@import 'mixin_colors';
 .container {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  height: 90vh;
   overflow: scroll;
 }
 
@@ -25,18 +25,27 @@
 
   &__detail{
     padding-left: 30px;
-    width: 100%;
+    width: 80%;
   }
 
   &__age {
     display: inline;
     font-size: 40px;
+    @include text-shadow();
   }
 
   &__name {
     display: inline;
     font-size: 40px;
     text-align: center;
+    @include text-shadow();
+  }
+
+  &__profile {
+    margin-left: 15px;
+    font-size: 20px;
+    height: 100px;
+    @include text-shadow();
   }
 }
 

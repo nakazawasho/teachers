@@ -5,6 +5,7 @@ class TeachersController < ApplicationController
 
   def show
     @teacher = Teacher.find(params[:id])
+    render layout: "application_show"
   end
 
   def search

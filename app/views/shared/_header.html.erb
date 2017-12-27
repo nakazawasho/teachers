@@ -4,20 +4,30 @@
       <h1>家庭教師</h1>
     <% end %>
     <li id="menu">
-      <div onclick="obj=document.getElementById('open').style; obj.display=(obj.display=='none')?'block':'none';">
-        <a style="cursor:pointer;">
-          <%= fa_icon("bars 5x") %>
-        </a>
-      </div>
-      <ul id="open">
+      <%= fa_icon "bars 5x", id: "menu-open-icon" %>
+      <div class="menu-open">
+      <ul>
         <li>
-          <% if teacher_signed_in? %>
+          <%= link_to "生徒登録", new_student_registration_path %>
+        </li>
+        <li>
+          <%= link_to "講師登録", new_teacher_registration_path %>
+        </li>
+        <li>
+          <%= link_to "講師としてログインする", new_teacher_session_path %>
+        </li>
+        <% if teacher_signed_in? %>
+          <li>
             <%= link_to "ログアウト", destroy_teacher_session_path, method: :delete %>
           <% elsif student_signed_in? %>
             <%= link_to "ログアウト", destroy_student_session_path, method: :delete %>
-          <% end %>
+          </li>
+        <% end %>
+        <li>
+          このサイトについて
         </li>
       </ul>
+    </div>
     </li>
     <li id="home" class="list-right">
       <% if teacher_signed_in? %>

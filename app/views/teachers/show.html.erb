@@ -1,22 +1,50 @@
 <div class="photo">
-  <%= image_tag @teacher.image %>
+  <%= image_tag @teacher.get_image %>
 </div>
 <div class="profile">
 
-  <div class="profile__name profile__content">
-    <%= @teacher.name %>
+  <div class="profile__content">
+    <div class="profile__content-right font-size">
+      名前：
+    </div>
+    <div class="profile__content-left font-size">
+      <%= @teacher.name %>
+    </div>
   </div>
 
-  <div class="profile__department profile__content">
-    <%= @teacher.department %>
+  <div class="profile__content">
+    <div class="profile__content-right font-size">
+      大学：
+    </div>
+    <div class="profile__content-left font-size">
+      <%= @teacher.university %>
+    </div>
   </div>
 
-  <div class="profile__subject profile__content">
-    <%= @teacher.subject %>
+  <div class="profile__content">
+    <div class="profile__content-right font-size">
+      学部：
+    </div>
+    <div class="profile__content-left font-size">
+      <%= @teacher.department %>
+    </div>
   </div>
 
-  <div class="profile__profile profile__content">
+  <div class="profile__content">
+    <div class="profile__content-right font-size">
+      教科：
+    </div>
+    <div class="profile__content-left font-size">
+      <%= @teacher.subjects %>
+    </div>
+  </div>
+
+  <div class="profile__profile font-size">
     <%= @teacher.profile %>
   </div>
 
+</div>
+
+<div class="button">
+  <%= link_to "チャット開始", root_path%>
 </div>

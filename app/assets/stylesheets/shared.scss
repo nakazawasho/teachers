@@ -1,10 +1,10 @@
+@import 'mixin_colors';
+
 .background {
-  background-color: white;
+  background-color: $base-color;
   background-size: cover;
   z-index: 0;
   position: relative;
-  width: 100vw;
-  height: 100vh;
 }
 
 .header {
@@ -12,8 +12,9 @@
   height: 200px;
   z-index: 9999;
   position: fixed;
-  background: white;
-  border-bottom: medium solid black;
+  background: $base-color;
+  @include border-bottom();
+  @include box-shadow();
 
   a:link {
     color: black;
@@ -85,3 +86,16 @@
   }
 }
 
+.menu-open {
+  position: absolute;
+  background-color: $base-color;
+  width: 100vw;
+  right: -42px;
+  top: 147px;
+
+  li {
+    font-size: 50px;
+    @include box-shadow();
+    @include border-bottom();
+  }
+}

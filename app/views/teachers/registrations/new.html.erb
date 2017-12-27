@@ -7,30 +7,28 @@
       <%= devise_error_messages! %>
 
       <div class="field">
-        <%= f.label :name %><br />
+        <%= f.label :name, "名前を入力" %><br />
         <%= f.text_field :name, autofocus: true %>
       </div>
 
       <div class="field">
-        <%= f.label :email %><br />
+        <%= f.label :email, "メールアドレスを入力" %><br />
         <%= f.email_field :email, autofocus: true %>
       </div>
 
       <div class="field">
-        <%= f.label :age %><br />
+        <%= f.label :age, "年齢を入力" %><br />
         <%= f.number_field :age, autofocus: true %>
       </div>
 
-
       <div class="field">
-        <%= f.label :address %><br />
+        <%= f.label :address, "住所を入力" %><br />
         <%= f.text_field :address, autofocus: true %>
       </div>
 
-
-      <div class="field">
-        <%= f.label :subject %><br />
-        <%= f.text_field :subject, autofocus: true %>
+      <div class="field", id="check_boxes">
+        <%= f.label :subject_ids, "指導可能科目を入力" %><br />
+        <%= f.collection_check_boxes :subject_ids, Subject.all, :id, :subject %>
       </div>
 
       <div class="field">
@@ -40,7 +38,7 @@
 
       <div class="field">
         <%= f.label :salary%><br />
-        <%= f.file_field :salary %>
+        <%= f.text_field :salary %>
       </div>
 
       <div class="field">
@@ -57,7 +55,9 @@
       </div>
 
       <div class="actions">
-        <%= f.submit "Sign up" %>
+        <div class="botton">
+          <%= f.submit "Sign up" %>
+        </div>
     <% end %>
 
     <%= render "teachers/shared/links" %>
