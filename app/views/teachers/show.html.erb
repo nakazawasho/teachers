@@ -35,7 +35,7 @@
       教科：
     </div>
     <div class="profile__content-left font-size">
-      <%= @teacher.subjects %>
+      <%= @teacher.get_subjects %>
     </div>
   </div>
 
@@ -45,6 +45,9 @@
 
 </div>
 
-<div class="button">
-  <%= link_to "チャット開始", root_path%>
+<div class="footer">
+  <div class="button">
+    <%= link_to "チャット開始", root_path%>
+  </div>
 </div>
+

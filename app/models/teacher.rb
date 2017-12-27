@@ -8,9 +8,13 @@ class Teacher < ApplicationRecord
 
   #asociation
   has_many :subjects, through: :teacher_subjects
-  has_many :teacher_subjects
-  accepts_nested_attributes_for :teacher_subjects
+  has_many :teacher_subjects, dependent: :destroy
 
+  #scope
+  scope :search_with_name, -> (keyword){ where('name LIKE(?)', "%#{keyword}%")}
+  scope :search_with_subjects, ->  (subject_ids){ joins(:subjects).merge(Subject.id_in(subject_ids)) }
+
+  #ビューで使用するメソッド
   def get_initial_50
     if profile.present?
       profile.slice(0, 49) + "......................."
@@ -24,6 +28,18 @@ class Teacher < ApplicationRecord
       image
     else
       "no-image.jpg"
+    end
+  end
+
+  def get_subjects
+    if subjects.present?
+      a_subjects = []
+      subjects.each do |subject_record|
+        a_subjects << subject_record.subject
+      end
+      return a_subjects.join(" ")
+    else
+      "登録されていません"
     end
   end
 end
