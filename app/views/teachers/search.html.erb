@@ -1,6 +1,15 @@
- search
-  .search__title 検索
-  = form_tag("/articles/search", method: :get, class: "search__text-form") do
-    %input{type: "text", name: "search", class: "search__text-form-input", placeholder: "記事を検索"}
-    %button{type: "submit", class: "search__text-form-bottun"}
-      %i{class: "fa fa-search fa-2x"}
+<div class="form-container">
+  <div class="form">
+    <%= form_tag("/teachers/search") do %>
+      <div class="field">
+        <%= label :search, :name, "名前で検索する" %><br />
+        <%= text_field :search, :name, autofocus: true %>
+      </div>
+      <div class="field", id="check_boxes">
+        <%= label :search, :subject_ids, "教科から検索する" %><br />
+        <%= collection_check_boxes :search, :subject_ids, Subject.all, :id, :subject %>
+      </div>
+    <%= submit_tag "検索を開始する", class:"search-button" %>
+    <% end %>
+  </div>
+</div>

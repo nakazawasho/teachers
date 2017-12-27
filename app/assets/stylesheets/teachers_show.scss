@@ -37,13 +37,20 @@
   font-size: 75px;
 }
 
-.button {
-  position: absolute;
+.footer {
+  position: fixed;
+  width: 100%;
   bottom: 0;
-  background-color: #333;
-  color: #fff;
+}
+
+.button {
+  margin: 0 auto 50px;
   width: 300px;
-  height: 150px;
+  @include button();
+
+  a:visited {
+    color: white;
+  }
 }
 .button:hover {
   background-color: #59b1eb;

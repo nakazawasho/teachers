@@ -1,0 +1,11 @@
+@import "mixin_colors";
+
+.search-button {
+  @include button();
+}
+
+.search-result {
+  font-size: 50px;
+  @include box-shadow();
+  @include border-bottom();
+}

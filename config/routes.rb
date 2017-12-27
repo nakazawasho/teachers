@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :teachers do
     collection do
       get 'search'
+      post 'search' => 'teachers#start_searching'
     end
   end
 
