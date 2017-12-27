@@ -45,6 +45,8 @@
 
 </div>
 
-<div class="button">
-  <%= link_to "チャット開始", root_path%>
-</div>
+<% if student_signed_in? %>
+  <div class="button">
+    <%= link_to "チャット開始", root_path%>
+  </div>
+<% end %>
