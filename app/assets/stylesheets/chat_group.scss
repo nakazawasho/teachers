@@ -1,0 +1,90 @@
+@import 'mixin_colors';
+
+.chat-group-body {
+  overflow: scroll;
+}
+
+.message_form {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  border-top: 1px solid black;
+  width: 90%;
+  height: 150px;
+  background-color: white;
+  padding: 50px;
+
+  textarea {
+    border: 1px solid rgba(0, 0, 0, 1);
+    border-radius: 6px;
+    width: 70%;
+    height: 150px;
+    font-size: 40px;
+  }
+
+  button {
+    float: right;
+    @include button($font-size: 30px);
+    height: 152px;
+    border-radius: 15px;
+  }
+}
+
+.inline {
+  display: inline;
+}
+
+/* チャットレイアウト */
+.chat-box {
+    width: 100%;
+    height: auto;
+    overflow: hidden; /*floatの解除*/
+    margin-bottom: 20px;
+}
+.chat-face {
+    float: left;
+    margin-right: -170px;
+    width: 20%;
+    padding-left: 30px;
+}
+.chat-face img{
+    border-radius: 75px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 4px #ddd;
+}
+.chat-area {
+    width: 80%;
+    float: left;
+    margin-left: 30px;
+}
+.chat-hukidashi {
+    display: inline-block; /*コメントの文字数に合わせて可変*/
+    padding: 15px 20px;
+    margin-left: 120px;
+    margin-top: 8px;
+    /* border: 1px solid gray; ←削除 */
+    border-radius: 10px;
+    position: relative; /*追記*/
+    background-color: #D9F0FF; /*追記*/
+    font-size: 40px;
+}
+/* ↓追記↓ */
+.chat-hukidashi:after {
+    content: "";
+    position: absolute;
+    top: 50%; left: -10px;
+    margin-top: -10px;
+    display: block;
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent #D9F0FF transparent transparent;
+}
+.someone {
+    background-color: #BCF5A9;
+}
+.someone:after {
+    border-color: transparent #BCF5A9 transparent transparent;
+}
+

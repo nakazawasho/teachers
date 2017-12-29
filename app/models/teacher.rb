@@ -9,6 +9,9 @@ class Teacher < ApplicationRecord
   #asociation
   has_many :subjects, through: :teacher_subjects
   has_many :teacher_subjects, dependent: :destroy
+  has_one :student, through: :chat_groups
+  has_many :chat_groups, dependent: :destroy
+  has_many :messages, as: :messageable, dependent: :destroy
 
   #scope
   scope :search_with_name, -> (keyword){ where('name LIKE(?)', "%#{keyword}%")}

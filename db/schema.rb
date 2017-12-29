@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171227081708) do
+ActiveRecord::Schema.define(version: 20171228132110) do
 
   create_table "chat_groups", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "teacher_id"
@@ -19,6 +19,17 @@ ActiveRecord::Schema.define(version: 20171227081708) do
     t.datetime "updated_at", null: false
     t.index ["student_id"], name: "index_chat_groups_on_student_id", using: :btree
     t.index ["teacher_id"], name: "index_chat_groups_on_teacher_id", using: :btree
+  end
+
+  create_table "messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "text",             limit: 65535
+    t.string   "messageable_type"
+    t.integer  "messageable_id"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.integer  "chat_group_id"
+    t.index ["chat_group_id"], name: "index_messages_on_chat_group_id", using: :btree
+    t.index ["messageable_type", "messageable_id"], name: "index_messages_on_messageable_type_and_messageable_id", using: :btree
   end
 
   create_table "students", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -83,6 +94,7 @@ ActiveRecord::Schema.define(version: 20171227081708) do
     t.index ["reset_password_token"], name: "index_teachers_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "messages", "chat_groups"
   add_foreign_key "teacher_subjects", "subjects"
   add_foreign_key "teacher_subjects", "teachers"
 end

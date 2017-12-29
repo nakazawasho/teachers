@@ -16,13 +16,13 @@
         <li>
           <%= link_to "講師としてログインする", new_teacher_session_path %>
         </li>
-        <% if teacher_signed_in? %>
-          <li>
+        <li>
+          <% if teacher_signed_in? %>
             <%= link_to "ログアウト", destroy_teacher_session_path, method: :delete %>
           <% elsif student_signed_in? %>
             <%= link_to "ログアウト", destroy_student_session_path, method: :delete %>
-          </li>
-        <% end %>
+          <% end %>
+        </li>
         <li>
           このサイトについて
         </li>

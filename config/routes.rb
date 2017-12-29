@@ -11,5 +11,7 @@ Rails.application.routes.draw do
   end
 
   resources :students
-  resources :chat_groups
+  resources :chat_groups do
+    resources :messages
+  end
 end

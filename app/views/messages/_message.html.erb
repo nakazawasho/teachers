@@ -1,0 +1,10 @@
+<div class="chat-box">
+  <div class="chat-face">
+    <%= image_tag "#{message.get_image}", size: '150x150' %>
+  </div>
+  <div class="chat-area">
+    <div class="chat-hukidashi">
+      <%= simple_format(message.text) %>
+    </div>
+  </div>
+</div>
