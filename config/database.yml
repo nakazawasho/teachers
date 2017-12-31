@@ -51,4 +51,4 @@ production:
   <<: *default
   database: teachers_production
   username: teachers
-  password:
+  password: <%= ENV['PASSWORD'] %>
