@@ -13,9 +13,21 @@ development:
 test:
   <<: *default
   database: teachers_test
-
+# for a full rundown on how to provide these environment variables in a
+# production deployment.
+#
+# On Heroku and other platform providers, you may have a full connection URL
+# available as an environment variable. For example:
+#
+#   DATABASE_URL="mysql2://myuser:mypass@localhost/somedatabase"
+#
+# You can use this database configuration with:
+#
+#   production:
+#
 production:
   <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
   database: teachers_production
   username: root
   password: <%= ENV['PASSWORD'] %>
