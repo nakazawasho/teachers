@@ -1,7 +1,7 @@
 <div class="form-container">
   <div class="form">
     <div class="form__title">
-      <h2>Log in</h2>
+      <h2>ログイン</h2>
     </div>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -24,10 +24,8 @@
 
   <div class="actions">
     <%= f.submit "Log in" %>
-  </div>
 <% end %>
 
-      <div class="actions">
         <%= render "teachers/shared/links" %>
       </div>
   </div>

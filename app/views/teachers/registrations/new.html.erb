@@ -1,7 +1,7 @@
 <div class="form-container">
   <div class="form">
     <div class="form__title">
-      <h2>Sign up</h2>
+      <h2>講師登録</h2>
     </div>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
@@ -32,17 +32,17 @@
       </div>
 
       <div class="field">
-        <%= f.label :image%><br />
+        <%= f.label :image, "アイコン画像を入力" %><br />
         <%= f.file_field :image %>
       </div>
 
       <div class="field">
-        <%= f.label :salary%><br />
+        <%= f.label :salary, "希望時給を入力"%><br />
         <%= f.text_field :salary %>
       </div>
 
       <div class="field">
-        <%= f.label :password %>
+        <%= f.label :password, "パスワードを入力" %>
         <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %> characters minimum)</em>
         <% end %><br />
@@ -50,7 +50,7 @@
       </div>
 
       <div class="field">
-        <%= f.label :password_confirmation %><br />
+        <%= f.label :password_confirmation, "パスワードを再度入力" %><br />
         <%= f.password_field :password_confirmation, autocomplete: "off" %>
       </div>
 

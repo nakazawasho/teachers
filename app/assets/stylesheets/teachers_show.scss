@@ -16,6 +16,8 @@
   margin: 50px auto 200px;
 
   &__content {
+    @include border-bottom();
+    margin-bottom: 30px;
 
     &-right{
       display: inline;
@@ -34,7 +36,7 @@
 }
 
 .font-size {
-  font-size: 75px;
+  font-size: 40px;
 }
 
 .footer {
