@@ -1,0 +1,23 @@
+<% if message.messageable.kind_of?(Student) %>
+  <div class="chat-box">
+    <div class="chat-face chat-face-right">
+      <%= image_tag 'student', size: '150x150' %>
+    </div>
+    <div class="chat-area-right">
+      <div class=" chat-hukidashi-right me">
+      <%= simple_format(message.text) %>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <div class="chat-box">
+    <div class="chat-face chat-face-left">
+      <%= image_tag "#{message.get_image}", size: '150x150' %>
+    </div>
+    <div class="chat-area left">
+      <div class="chat-hukidashi chat-hukidashi-left">
+        <%= simple_format(message.text) %>
+      </div>
+    </div>
+  </div>
+<% end %>

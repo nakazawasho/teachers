@@ -1,0 +1,11 @@
+<div class="chat-group-body">
+  <%= render @messages %>
+</div>
+<div class="message_form">
+  <%= form_for [@chat_group, @message] do |f| %>
+    <%= f.text_area :text, placeholder: "メッセージを入力してください", class: "inline" %>
+      <%= button_tag type: "submit" do %>
+        送信<%= fa_icon("arrow-up")%>
+      <% end %>
+  <% end %>
+</div>

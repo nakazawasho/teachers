@@ -45,8 +45,10 @@
 
 </div>
 
-<div class="footer">
-  <div class="button">
-    <%= link_to "チャット開始", root_path%>
+<% if student_signed_in? %>
+  <div class="footer">
+    <div class="button">
+    <%= link_to "チャット開始", chat_groups_path(student_id: current_student.id, teacher_id: @teacher_id), method: :post %>
+    </div>
   </div>
-</div>
+<% end %>
