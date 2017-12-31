@@ -14,8 +14,29 @@ class Teacher < ApplicationRecord
   has_many :messages, as: :messageable, dependent: :destroy
 
   #scope
-  scope :search_with_name, -> (keyword){ where('name LIKE(?)', "%#{keyword}%")}
-  scope :search_with_subjects, ->  (subject_ids){ joins(:subjects).merge(Subject.id_in(subject_ids)) }
+  scope :search_with_address, -> (address){
+
+    if address.present?
+      where('address LIKE(?)', "%#{address}%")
+    end
+
+  }
+
+  scope :search_with_subjects, ->  (subject_ids){
+
+    if subject_ids.length != 1
+      joins(:subjects).merge(Subject.id_in(subject_ids))
+    end
+
+ }
+
+  scope :search_with_salary, -> (min, max){
+
+    if min.present? && max.present?
+      where(salary: min..max)
+    end
+
+  }
 
   #ビューで使用するメソッド
   def get_initial_50

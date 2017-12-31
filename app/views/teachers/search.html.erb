@@ -2,12 +2,20 @@
   <div class="form">
     <%= form_tag("/teachers/search") do %>
       <div class="field">
-        <%= label :search, :name, "名前で検索する" %><br />
-        <%= text_field :search, :name, autofocus: true %>
+        <%= label :search, :address, "地域で検索する" %><br />
+        <%= text_field :search, :address, autofocus: true, placeholder: "地域を入力", style: "font-size: 40px;" %>
       </div>
       <div class="field", id="check_boxes">
         <%= label :search, :subject_ids, "教科から検索する" %><br />
         <%= collection_check_boxes :search, :subject_ids, Subject.all, :id, :subject %>
+      </div>
+      <div class="field">
+        <%= label :search, :salary_min, "検索する時給を入力してください"%>
+        <%= number_field :search, :salary_min, placeholder: "最低時給", min: 856, style: "font-size: 40px;", value: 856 %>
+        <span class="yen">円</span>
+        <span>  ~  </span>
+        <%= number_field :search, :salary_max, placeholder: "最高時給", min: 1000, style: "font-size:40px;" %>
+        <span class="yen">円</span>
       </div>
     <%= submit_tag "検索を開始する", class:"search-button" %>
     <% end %>

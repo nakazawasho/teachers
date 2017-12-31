@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171228132110) do
+ActiveRecord::Schema.define(version: 20171230174617) do
 
   create_table "chat_groups", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "teacher_id"
@@ -75,7 +75,6 @@ ActiveRecord::Schema.define(version: 20171228132110) do
     t.text     "address",                limit: 65535
     t.integer  "age"
     t.string   "department"
-    t.string   "subject"
     t.integer  "salary"
     t.string   "image"
     t.string   "profile"

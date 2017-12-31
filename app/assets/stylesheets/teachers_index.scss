@@ -49,3 +49,36 @@
   }
 }
 
+.paginate-wrapper {
+  width: 100%;
+
+  .pagination {
+    margin:30px 0 30px;
+    width: 400px;
+    font-size: 40px;
+    margin-left: 30px;
+
+    .current {
+      color: $color;
+    }
+
+    a:link {
+      color: black;
+    }
+
+    a:visited {
+      color: black;
+    }
+
+    a:hover {
+      color: $color;
+    }
+
+    span {
+      background-color: white;
+      border: 1px solid black;
+      border-radius: 6px;
+      padding: 10px;
+    }
+  }
+}
