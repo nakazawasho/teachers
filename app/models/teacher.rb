@@ -66,4 +66,36 @@ class Teacher < ApplicationRecord
       "登録されていません"
     end
   end
+
+  def get_name
+    if name.present?
+      name
+    else
+      "登録されていません"
+    end
+  end
+
+  def get_university
+    if university.present?
+      university
+    else
+      "登録されていません"
+    end
+  end
+
+  def get_department
+    if department.present?
+      department
+    else
+      "登録されていません"
+    end
+  end
+
+  def get_profile
+    if profile.present?
+      profile
+    else
+      "登録されていません"
+    end
+  end
 end

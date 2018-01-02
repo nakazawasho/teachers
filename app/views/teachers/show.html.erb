@@ -1,3 +1,6 @@
+<div class="back-button">
+  <%= link_to '<', :back %>
+</div>
 <div class="photo">
   <%= image_tag @teacher.get_image %>
 </div>
@@ -8,7 +11,7 @@
       名前：
     </div>
     <div class="profile__content-left font-size">
-      <%= @teacher.name %>
+      <%= @teacher.get_name %>
     </div>
   </div>
 
@@ -17,7 +20,7 @@
       大学：
     </div>
     <div class="profile__content-left font-size">
-      <%= @teacher.university %>
+      <%= @teacher.get_university %>
     </div>
   </div>
 
@@ -26,7 +29,7 @@
       学部：
     </div>
     <div class="profile__content-left font-size">
-      <%= @teacher.department %>
+      <%= @teacher.get_department %>
     </div>
   </div>
 
@@ -40,14 +43,29 @@
   </div>
 
   <div class="profile__profile font-size" style="margin-top: 75px;">
-    <%= @teacher.profile %>
+    <%= simple_format(@teacher.get_profile) %>
   </div>
 
 </div>
 
+<% if teacher_signed_in? %>
+  <div class="footer">
+    <div class="button">
+      <%= link_to "プロフィールを編集", edit_teacher_path(current_teacher) %>
+    </div>
+  </div>
+<% end %>
+
 <% if student_signed_in? %>
   <div class="footer">
     <div class="button">
+  <% if teacher_signed_in? %>
+    <div class="footer">
+      <div class="button">
+        <%= link_to "編集を反映", teacher_path(current_teacher), method: :put %>
+      </div>
+    </div>
+  <% end %>
     <%= link_to "チャット開始", chat_groups_path(student_id: current_student.id, teacher_id: @teacher_id), method: :post %>
     </div>
   </div>

@@ -1,0 +1,57 @@
+<div class="back-button">
+  <%= link_to '<', :back %>
+</div>
+<div class="photo">
+  <%= image_tag @teacher.get_image %>
+</div>
+<div class="profile">
+  <%= form_for @teacher do |f| %>
+
+      <div class="profile__content">
+      <div class="profile__content-right font-size">
+        名前：
+      </div>
+      <div class="profile__content-left font-size">
+        <%= f.text_field :department, placeholder: "#{@teacher.get_name}" %>
+      </div>
+    </div>
+
+    <div class="profile__content">
+      <div class="profile__content-right font-size">
+        大学：
+      </div>
+      <div class="profile__content-left font-size">
+        <%= f.text_field :department, placeholder: "#{@teacher.get_university}" %>
+      </div>
+    </div>
+
+    <div class="profile__content">
+      <div class="profile__content-right font-size">
+        学部：
+      </div>
+      <div class="profile__content-left font-size">
+      <%= f.text_field :department, placeholder: "#{@teacher.get_department}" %>
+      </div>
+    </div>
+
+    <div class="profile__content">
+      <div class="profile__content-right font-size">
+        教科：
+      </div>
+      <div class="profile__content-left font-size">
+        <%= f.collection_check_boxes :subject_ids, Subject.all, :id, :subject %>
+      </div>
+    </div>
+
+    <div class="profile__profile font-size" style="margin-top: 75px;">
+      <%= f.text_area :profile %>
+    </div>
+
+  <div class="footer">
+    <div class="button">
+      <%= f.submit "更新" %>
+    </div>
+  </div>
+  <% end %>
+
+</div>

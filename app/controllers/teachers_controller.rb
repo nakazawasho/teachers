@@ -9,10 +9,25 @@ class TeachersController < ApplicationController
     render layout: "application_show"
   end
 
+  def edit
+    @teacher = Teacher.find(params[:id])
+    render layout: "application_show"
+  end
+
+  def update
+    Teacher.find(params[:id]).update(teacher_params)
+    redirect_to teacher_path(params[:id])
+  end
+
   def search
   end
 
   def start_searching
     @teachers = Teacher.search_with_address(params[:search][:address]).search_with_subjects(params[:search][:subject_ids]).search_with_salary(params[:search][:salary_min].to_s, params[:search][:salary_max].to_s)
+  end
+
+  private
+  def teacher_params
+    params.require(:teacher).permit(:name, :image, :university, :department, :address, :profile, :subject_ids)
   end
 end
