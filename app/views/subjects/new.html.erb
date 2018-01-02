@@ -1,0 +1,22 @@
+<div class="form-container">
+  <div class="form">
+    <div class="form__title">
+      <h2>教科登録</h2>
+    </div>
+
+    <%= form_for @subject do |f| %>
+
+      <div class="field">
+        <%= f.label :subject, "教科を入力" %><br />
+        <%= f.text_field :subject, autofocus: true %>
+      </div>
+
+      <div class="footer">
+        <div class="button">
+          <%= f.submit "登録" %>
+        </div>
+      </div>
+
+    <% end %>
+  </div>
+</div>
