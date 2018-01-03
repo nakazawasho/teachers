@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :students
   devise_for :teachers, controllers: {
-  :omniauth_callbacks => 'teachers/omniauth_callbacks'
+  :omniauth_callbacks => 'omniauth_callbacks'
  }
 
   root "teachers#index"
