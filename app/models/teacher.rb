@@ -40,18 +40,18 @@ class Teacher < ApplicationRecord
 
   #facebook_login
   def self.find_for_omiauth(auth)
-  user = User.where(provider: auth.provider, uid: auth.uid).first
+  teacher = Teacher.where(provider: auth.provider, uid: auth.uid).first
 
-  unless user
-    user = User.new
-    user.provider = auth.provider
-    user.uid = auth.uid
-    user.email = auth.info.email
-    user.password = Devise.friendly_token[0,20]
-    user.save
+  unless teacher
+    teacher = Teacher.new
+    teacher.provider = auth.provider
+    teacher.uid = auth.uid
+    teacher.email = auth.info.email
+    teacher.password = Devise.friendly_token[0,20]
+    teacher.save
   end
 
-  return user
+  return teacher
  end
 
   #ビューで使用するメソッド
