@@ -2,7 +2,7 @@ class Teacher < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   mount_uploader :image, ImageUploader
 
@@ -37,6 +37,22 @@ class Teacher < ApplicationRecord
     end
 
   }
+
+  #facebook_login
+  def self.find_for_omiauth(auth)
+  user = User.where(provider: auth.provider, uid: auth.uid).first
+
+  unless user
+    user = User.new
+    user.provider = auth.provider
+    user.uid = auth.uid
+    user.email = auth.info.email
+    user.password = Devise.friendly_token[0,20]
+    user.save
+  end
+
+  return user
+ end
 
   #ビューで使用するメソッド
   def get_initial_50

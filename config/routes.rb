@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :teachers
   devise_for :students
+  devise_for :teachers, controllers: {
+  :omniauth_callbacks => 'teachers/omniauth_callbacks'
+ }
 
   root "teachers#index"
   resources :teachers, except: [:new, :create, :destroy] do

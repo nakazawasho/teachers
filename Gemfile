@@ -18,6 +18,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'mini_magick'
 gem 'carrierwave'
 gem 'kaminari'
+gem 'omniauth-facebook'
 
 group :development, :test do
   gem 'byebug', platform: :mri
