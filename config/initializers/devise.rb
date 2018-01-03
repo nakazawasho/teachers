@@ -278,7 +278,7 @@ Devise.setup do |config|
 
   #facebook_login
   config.omniauth( :facebook,
-  <%= ENV['FACEBOOK_APP_ID'] %>,
-  <%= ENV['FACEBOOK_APP_SECRET'] %>,
+  ENV['FACEBOOK_APP_ID'],
+  ENV['FACEBOOK_APP_SECRET'],
   {:scope => 'email, public_profile'} )
 end
