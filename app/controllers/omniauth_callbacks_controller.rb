@@ -7,11 +7,11 @@ class OmniauthCallbacksController < ApplicationController
   def callback_from(provider)
     provider = provider.to_s
 
-    @user = User.find_for_omiauth(request.env['omniauth.auth'])
+    @teacher = Teacher.find_for_omiauth(request.env['omniauth.auth'])
 
-    if @user.persisted?
+    if @teacher.persisted?
       flash[:notice] = I18n.t('devise.omniauth_callbacks.success', kind: provider.capitalize)
-      sign_in_and_redirect @user, event: :authentication
+      sign_in_and_redirect @teacher, event: :authentication
     else
       flash[:notice] = "ログインできません"
       session["devise.#{provider}_data"] = request.env['omniauth.auth']
