@@ -60,10 +60,9 @@
         <% end %>
     <% end %>
 
-    <%= link_to 'Facebookでログイン', teacher_facebook_omniauth_authorize_path %>
-
     <%- if devise_mapping.omniauthable? %>
       <%- resource_class.omniauth_providers.each do |provider| %>
+
       <%= link_to omniauth_authorize_path(resource_name, provider), class: "button", style: "font-size:32px;margin-bottom:15px;" do %>
             <%= fa_icon("facebook-official") %>facebookで登録
         <% end %>

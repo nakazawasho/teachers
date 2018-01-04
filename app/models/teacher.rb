@@ -70,6 +70,14 @@ class Teacher < ApplicationRecord
     end
   end
 
+  def get_age
+    if age.present?
+      age
+    else
+      "登録されていません"
+    end
+  end
+
   def get_address
     if address.present?
       address

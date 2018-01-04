@@ -27,6 +27,15 @@
 
     <div class="profile__content">
       <div class="profile__content-right font-size">
+        年齢：
+      </div>
+      <div class="profile__content-left font-size">
+        <%= f.text_field :age, placeholder: "#{@teacher.get_age}" %>
+      </div>
+    </div>
+
+    <div class="profile__content">
+      <div class="profile__content-right font-size">
         住所：
       </div>
       <div class="profile__content-left font-size">
