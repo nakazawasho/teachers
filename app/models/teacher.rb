@@ -13,6 +13,10 @@ class Teacher < ApplicationRecord
   has_many :chat_groups, dependent: :destroy
   has_many :messages, as: :messageable, dependent: :destroy
 
+  #validation
+  validates :name, :email, presence: true
+  validates_uniqueness_of :email
+
   #scope
   scope :search_with_address, -> (address){
 
