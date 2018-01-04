@@ -48,7 +48,7 @@
 
 </div>
 
-<% if teacher_signed_in? && teacher.id == current_teacher.id %>
+<% if teacher_signed_in? && @teacher.id == current_teacher.id %>
   <div class="footer">
     <div class="button">
       <%= link_to "編集", edit_teacher_path(current_teacher) %>
