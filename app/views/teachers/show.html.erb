@@ -59,14 +59,15 @@
 <% if student_signed_in? %>
   <div class="footer">
     <div class="button">
-  <% if teacher_signed_in? %>
-    <div class="footer">
-      <div class="button">
-        <%= link_to "編集を反映", teacher_path(current_teacher), method: :put %>
-      </div>
+      <%= link_to "チャット開始", chat_groups_path(student_id: current_student.id, teacher_id: @teacher_id), method: :post %>
     </div>
-  <% end %>
-    <%= link_to "チャット開始", chat_groups_path(student_id: current_student.id, teacher_id: @teacher_id), method: :post %>
+  </div>
+<% end %>
+
+<% if teacher_signed_in? %>
+  <div class="footer">
+    <div class="button">
+      <%= link_to "編集を反映", teacher_path(current_teacher), method: :put %>
     </div>
   </div>
 <% end %>
