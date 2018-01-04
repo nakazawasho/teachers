@@ -19,6 +19,7 @@ gem 'mini_magick'
 gem 'carrierwave'
 gem 'kaminari'
 gem 'omniauth-facebook'
+gem 'dotenv-rails'
 
 group :development, :test do
   gem 'byebug', platform: :mri

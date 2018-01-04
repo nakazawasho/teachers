@@ -1,4 +1,4 @@
-class OmniauthCallbacksController < ApplicationController
+class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def facebook
   # raise request.env['omniauth.auth'].to_yaml #ここで取得できるデータを確認できます。
   callback_from("facebook")
@@ -7,7 +7,8 @@ class OmniauthCallbacksController < ApplicationController
   def callback_from(provider)
     provider = provider.to_s
 
-    @teacher = Teacher.find_for_omiauth(request.env['omniauth.auth'])
+    @teacher = Teacher.from_omniauth(request.env['omniauth.auth'])
+    binding.pry
 
     if @teacher.persisted?
       flash[:notice] = I18n.t('devise.omniauth_callbacks.success', kind: provider.capitalize)
@@ -15,7 +16,7 @@ class OmniauthCallbacksController < ApplicationController
     else
       flash[:notice] = "ログインできません"
       session["devise.#{provider}_data"] = request.env['omniauth.auth']
-      redirect_to mypage_index_path
+      redirect_to  new_teacher_registration_path
     end
   end
 end
