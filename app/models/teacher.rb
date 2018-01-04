@@ -43,21 +43,15 @@ class Teacher < ApplicationRecord
   }
 
   #facebook_login
-  def self.find_for_omiauth(auth)
-  teacher = Teacher.where(provider: auth.provider, uid: auth.uid).first
-
-  unless teacher
-    teacher = Teacher.new
-    teacher.provider = auth.provider
-    teacher.uid = auth.uid
-    teacher.email = auth.info.email
-    teacher.image = auth.image
-    teacher.password = Devise.friendly_token[0,20]
-    teacher.save
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |teacher|
+      teacher.name = auth.info.name
+      teacher.email = auth.info.email
+      teacher.password = Devise.friendly_token[0,20]
+      teacher.image = auth.info.image
+    end
   end
 
-  return teacher
- end
 
   #ビューで使用するメソッド
   def get_initial_50
@@ -73,6 +67,14 @@ class Teacher < ApplicationRecord
       image
     else
       "no-image.jpg"
+    end
+  end
+
+  def get_address
+    if address.present?
+      address
+    else
+      "登録されていません"
     end
   end
 

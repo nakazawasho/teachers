@@ -25,6 +25,14 @@
       </div>
     </div>
 
+    <div class="profile__content">
+      <div class="profile__content-right font-size">
+        住所：
+      </div>
+      <div class="profile__content-left font-size">
+        <%= f.text_field :address, placeholder: "#{@teacher.get_address}" %>
+      </div>
+    </div>
 
     <div class="profile__content">
       <div class="profile__content-right font-size">
