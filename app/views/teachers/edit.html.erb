@@ -7,7 +7,7 @@
 <div class="profile">
   <%= form_for @teacher do |f| %>
 
-      <div class="profile__content">
+    <div class="profile__content">
       <div class="profile__content-right font-size">
         名前：
       </div>
@@ -15,6 +15,16 @@
         <%= f.text_field :name, placeholder: "#{@teacher.get_name}" %>
       </div>
     </div>
+
+    <div class="profile__content">
+      <div class="profile__content-right font-size">
+        アイコン画像：
+      </div>
+      <div class="profile__content-left font-size">
+        <%= f.file_field :image, value: "#{@teacher.image}" %>
+      </div>
+    </div>
+
 
     <div class="profile__content">
       <div class="profile__content-right font-size">
@@ -43,8 +53,17 @@
       </div>
     </div>
 
+    <div class="profile__content">
+      <div class="profile__content-right font-size">
+        希望時給：
+      </div>
+      <div class="profile__content-left font-size">
+        <%= f.text_field :salary, placeholder: "#{@teacher.get_salary}" %>円
+      </div>
+    </div>
+
     <div class="profile__profile font-size" style="margin-top: 75px;">
-      <%= f.text_area :profile %>
+    <%= f.text_area :profile, placeholder: "#{@teacher.get_profile}" %>
     </div>
 
   <div class="footer">

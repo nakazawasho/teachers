@@ -42,6 +42,15 @@
     </div>
   </div>
 
+  <div class="profile__content">
+    <div class="profile__content-right font-size">
+      希望時給：
+    </div>
+    <div class="profile__content-left font-size">
+      <%= @teacher.get_salary %>
+    </div>
+  </div>
+
   <div class="profile__profile font-size" style="margin-top: 75px;">
     <%= simple_format(@teacher.get_profile) %>
   </div>

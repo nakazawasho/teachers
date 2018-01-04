@@ -111,6 +111,14 @@ class Teacher < ApplicationRecord
     end
   end
 
+  def get_salary
+    if salary.present?
+      salary.to_s + "円"
+    else
+      "登録されていません"
+    end
+  end
+
   def get_profile
     if profile.present?
       profile
