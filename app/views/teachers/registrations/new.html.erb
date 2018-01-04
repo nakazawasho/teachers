@@ -1,5 +1,4 @@
-<div class="form-container">
-  <div class="form">
+<div class="form-container"> <div class="form">
     <div class="form__title">
       <h2>講師登録</h2>
     </div>
@@ -55,12 +54,22 @@
       </div>
 
       <div class="actions">
-        <div class="botton">
-          <%= f.submit "Sign up" %>
-        </div>
+        <%= button_tag type: "submit", class: "button", style: "width:462px;margin-bottom:15px;" do%>
+          <%= fa_icon("sign-in") %>
+          新規登録
+        <% end %>
     <% end %>
 
+    <%- if devise_mapping.omniauthable? %>
+      <%- resource_class.omniauth_providers.each do |provider| %>
+      <%= link_to omniauth_authorize_path(resource_name, provider), class: "button", style: "font-size:32px;margin-bottom:15px;" do %>
+            <%= fa_icon("facebook-official") %>facebookで登録
+        <% end %>
+      <% end -%>
+    <% end -%>
+
     <%= render "teachers/shared/links" %>
+
       </div>
   </div>
 </div>

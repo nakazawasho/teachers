@@ -26,6 +26,10 @@ class TeachersController < ApplicationController
     @teachers = Teacher.search_with_address(params[:search][:address]).search_with_subjects(params[:search][:subject_ids]).search_with_salary(params[:search][:salary_min].to_s, params[:search][:salary_max].to_s)
   end
 
+  def facebook_login
+    render 'teachers/registrations/facebook_login'
+  end
+
   private
   def teacher_params
     params.require(:teacher).permit(:name, :image, :university, :department, :address, :profile, {subject_ids: []})

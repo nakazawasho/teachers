@@ -46,12 +46,13 @@
       </div>
 
       <div class="actions">
-        <div class="botton">
-        <%= f.submit "Sign up" %>
-      </div>
-    <% end %>
+        <%= button_tag type: "submit", class: "button", style: "width:462px;margin-bottom:15px;" do%>
+          <%= fa_icon("sign-in") %>
+          新規登録
+        <% end %>
+  <% end %>
 
-    <%= render "students/shared/links" %>
+    <%= render "teachers/shared/links" %>
     </div>
   </div>
 </div>

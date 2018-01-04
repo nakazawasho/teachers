@@ -51,6 +51,7 @@ class Teacher < ApplicationRecord
     teacher.provider = auth.provider
     teacher.uid = auth.uid
     teacher.email = auth.info.email
+    teacher.image = auth.info.image
     teacher.password = Devise.friendly_token[0,20]
     teacher.save
   end
