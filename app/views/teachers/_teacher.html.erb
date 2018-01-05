@@ -2,7 +2,7 @@
   <%= link_to image_tag(teacher.get_image), teacher_path(teacher), class: "teacher" %>
   <div class="teacher__detail">
     <div class="teacher__age">
-      <%= teacher.age %>歳
+      <%= teacher.get_age_for_index %>
     </div>
     <div class="teacher__name">
       <%= teacher.name %>

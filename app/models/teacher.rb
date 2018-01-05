@@ -62,6 +62,10 @@ class Teacher < ApplicationRecord
     end
   end
 
+  def get_age_for_index
+    age.to_s + "歳" if age.present?
+  end
+
   def get_image
     if image.present?
       image
