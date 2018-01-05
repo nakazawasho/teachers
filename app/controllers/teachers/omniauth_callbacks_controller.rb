@@ -13,4 +13,5 @@
   def failure
     redirect_to root_path, alert: 'Facebook認証に失敗しました。'
   end
+
 end

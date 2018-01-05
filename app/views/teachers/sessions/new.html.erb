@@ -15,18 +15,23 @@
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end -%>
-
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= button_tag type: "submit", class: "button", style: "width:462px;margin-bottom:15px;" do%>
+      <%= fa_icon("sign-in") %>
+          ログイン
+    <% end %>
+
+    <%- if devise_mapping.omniauthable? %>
+      <%- resource_class.omniauth_providers.each do |provider| %>
+      <%= link_to omniauth_authorize_path(resource_name, provider), class: "button", style: "font-size:28px;margin-bottom:15px;" do %>
+        <%= fa_icon("facebook-official") %>
+        facebookログイン
+        <% end %>
+      <% end -%>
+    <% end -%>
+
 <% end %>
 
-        <%= render "teachers/shared/links" %>
-      </div>
+    </div>
   </div>
 </div>
