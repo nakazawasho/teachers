@@ -95,6 +95,7 @@
 
   li {
     font-size: 50px;
+    padding-left: 15px;
     @include box-shadow();
     @include border-bottom();
   }
